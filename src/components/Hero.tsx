@@ -42,20 +42,38 @@ const Hero = () => {
         {/* Profile Picture */}
         <motion.div
           variants={itemVariants}
-          className="relative w-32 h-32 mx-auto mb-8 p-1 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 shadow-[0_0_25px_rgba(6,182,212,0.4)]"
+          className="mb-12 relative inline-block"
         >
-          <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0a0a] border-2 border-[#0a0a0a]">
-            <img 
-              src="/profile_Photo.jpeg" 
-              alt={portfolioData.name}
-              className="w-full h-full object-cover"
-            />
+          {/* Handwritten Note Accent */}
+          <div className="absolute -top-12 -right-20 hidden md:block">
+            <motion.div
+              initial={{ rotate: 10, opacity: 0 }}
+              animate={{ rotate: -5, opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="font-signature text-2xl text-cyan-500/80"
+            >
+              Building the future, <br />
+              one line at a time
+            </motion.div>
           </div>
-          <div className="absolute -inset-2 rounded-full border border-cyan-500/20 animate-[spin_10s_linear_infinite]" />
+
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-white/10 overflow-hidden">
+              <img 
+                src="/profile_Photo.jpeg" 
+                alt={portfolioData.name}
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+          </div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="flex flex-col items-center gap-6 mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-cyan-400 text-xs font-semibold uppercase tracking-widest">
+        <motion.div
+          variants={itemVariants}
+          className="mb-8"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-cyan-400 font-medium mb-6">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
@@ -104,15 +122,15 @@ const Hero = () => {
           variants={itemVariants}
           className="text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.1]"
         >
-          Crafting the Future of <br />
-          <span className="text-gradient">Agentic Intelligence.</span>
+          Building Software that <br />
+          <span className="text-gradient">Thinks & Scales.</span>
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
           className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed"
         >
-          I&apos;m <span className="text-white font-semibold">Rajat</span>, a {portfolioData.academicStatus} specializing in <span className="text-white font-medium">Full-Stack (MERN)</span> development and <span className="text-white font-medium">AI integrations</span>. I build intelligent web systems and actively contribute to the open-source ecosystem.
+          I&apos;m <span className="text-white font-semibold">Rajat</span>, a {portfolioData.academicStatus} who turns complex logic into <span className="text-white font-medium">elegant, intelligent solutions</span>. I balance academic rigor with a deep passion for the open-source ecosystem.
         </motion.p>
 
         <motion.div

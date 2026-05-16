@@ -3,7 +3,7 @@ export const portfolioData = {
   role: "Full Stack Developer | MERN & Agentic AI Specialist",
   academicStatus: "CSE Sophomore @ NIT Hamirpur",
   focus: "MERN Stack, Agentic AI & Cybersecurity",
-  about: "I am a Full Stack Developer and Open Source enthusiast dedicated to building high-performance web applications and autonomous AI systems. Currently pursuing my B.Tech in Computer Science at NIT Hamirpur (Aug 2024 - May 2028), I maintain a strong focus on Data Structures, Algorithms, and scalable software architecture. Selected for GSSoC'26 and a prize winner at the Amazon Nova AI Hackathon, I am committed to delivering technical excellence and contributing to the global developer ecosystem.",
+  about: "I'm a developer who genuinely loves solving the hard problems—whether that's optimizing a complex data structure or building an AI agent that actually feels smart. I'm currently a CSE Sophomore at NIT Hamirpur, where I balance academic rigor with real-world contributions to open-source engines like Boa and MalariaGEN. For me, winning the Amazon Nova Hackathon wasn't just about the prize; it was about the thrill of building a working system under pressure. I'm always looking for the next challenge that pushes my boundaries in MERN stack and AI.",
   skills: [
     {
       category: "Languages",
