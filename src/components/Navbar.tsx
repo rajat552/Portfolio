@@ -89,36 +89,43 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-40 md:hidden bg-white/95 backdrop-blur-xl flex flex-col items-center justify-center"
           >
-            <div className="flex flex-col gap-4 p-6">
-              {navLinks.map((link) => (
-                <a
+            <div className="flex flex-col items-center gap-8 p-6 text-center">
+              {navLinks.map((link, i) => (
+                <motion.a
                   key={link.name}
                   href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-bold text-gray-600 hover:text-teal-600 transition-colors"
+                  className="text-3xl font-serif font-bold text-gray-900 hover:text-teal-600 transition-colors"
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
-              <div className="flex items-center gap-6 pt-4 border-t border-gray-100">
-                <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400">
-                  <Github className="w-6 h-6" />
+              
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="flex items-center gap-8 pt-8 border-t border-gray-100 w-full justify-center"
+              >
+                <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
+                  <Github className="w-8 h-8" />
                 </a>
-                <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400">
-                  <LinkedinIcon className="w-6 h-6" />
+                <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
+                  <LinkedinIcon className="w-8 h-8" />
                 </a>
-                <a href={portfolioData.socials.leetcode} target="_blank" rel="noopener noreferrer" className="text-gray-400">
-                  <Code className="w-6 h-6" />
+                <a href={portfolioData.socials.leetcode} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
+                  <Code className="w-8 h-8" />
                 </a>
-                <a href={portfolioData.socials.tryhackme} target="_blank" rel="noopener noreferrer" className="text-gray-400">
-                  <Shield className="w-6 h-6" />
-                </a>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         )}

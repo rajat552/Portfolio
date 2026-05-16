@@ -40,7 +40,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4 group-hover:text-teal-600 transition-colors">
+                <h3 className="text-xl md:text-2xl font-serif font-bold text-gray-900 mb-4 group-hover:text-teal-600 transition-colors">
                   {project.title}
                 </h3>
                 

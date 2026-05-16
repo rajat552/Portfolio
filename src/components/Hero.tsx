@@ -117,7 +117,7 @@ const Hero = () => {
 
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-8xl font-serif font-bold tracking-tight mb-8 leading-[1.1] text-gray-900"
+            className="text-5xl md:text-8xl font-serif font-bold tracking-tight mb-6 md:mb-8 leading-[1.1] text-gray-900"
           >
             Building Software that <br />
             <span className="text-teal-600 italic">Thinks & Scales.</span>
@@ -125,7 +125,7 @@ const Hero = () => {
 
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0"
           >
             I&apos;m <span className="text-gray-900 font-bold">Rajat</span>, a {portfolioData.academicStatus} who turns complex logic into <span className="text-gray-900 font-medium italic underline decoration-teal-500/30">elegant, intelligent solutions</span>. I balance academic rigor with a deep passion for open source.
           </motion.p>
