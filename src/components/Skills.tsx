@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolioData';
-import { LayoutGrid, Database, Cloud, Shield } from 'lucide-react';
+import { LayoutGrid, Database, Cloud, Shield, Code } from 'lucide-react';
 
 const icons = [LayoutGrid, Database, Cloud, Shield];
 
@@ -51,6 +51,49 @@ const Skills = () => {
             );
           })}
         </div>
+
+        {/* LeetCode Special Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 p-8 md:p-12 rounded-[2.5rem] bg-gradient-to-r from-orange-500/10 via-transparent to-cyan-500/10 border border-white/5 relative overflow-hidden group"
+        >
+          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+            <Code className="w-64 h-64 text-white rotate-12" />
+          </div>
+          
+          <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold mb-6">
+                50 Days Streak 2025
+              </div>
+              <h4 className="text-3xl md:text-5xl font-bold mb-6">Algorithm Mastery</h4>
+              <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
+                Actively solving complex algorithmic challenges on LeetCode to sharpen problem-solving intuition. My focus is on Master concepts in <span className="text-white font-semibold">dynamic programming, graph theory, and advanced data structures</span> with a high ratio of Medium difficulty problems.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="p-6 rounded-3xl bg-[#0a0a0a]/50 border border-white/5 text-center">
+                <div className="text-3xl font-bold text-white mb-1">{portfolioData.leetcodeStats?.solved}</div>
+                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Total Solved</div>
+              </div>
+              <div className="p-6 rounded-3xl bg-[#0a0a0a]/50 border border-white/5 text-center">
+                <div className="text-3xl font-bold text-green-400 mb-1">{portfolioData.leetcodeStats?.easy}</div>
+                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Easy</div>
+              </div>
+              <div className="p-6 rounded-3xl bg-[#0a0a0a]/50 border border-white/5 text-center">
+                <div className="text-3xl font-bold text-orange-400 mb-1">{portfolioData.leetcodeStats?.medium}</div>
+                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Medium</div>
+              </div>
+              <div className="p-6 rounded-3xl bg-[#0a0a0a]/50 border border-white/5 text-center">
+                <div className="text-3xl font-bold text-red-400 mb-1">{portfolioData.leetcodeStats?.hard}</div>
+                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Hard</div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

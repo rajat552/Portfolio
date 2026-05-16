@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { ChevronRight, Download, Github, ShieldCheck, Briefcase, Cloud } from 'lucide-react';
+import { ChevronRight, Download, Github, ShieldCheck, Briefcase, Cloud, Code } from 'lucide-react';
 import { portfolioData } from '@/data/portfolioData';
 
 const Hero = () => {
@@ -81,6 +81,15 @@ const Hero = () => {
               <div className="text-left">
                 <div className="text-[10px] text-slate-500 uppercase tracking-tighter font-bold">Hackathon</div>
                 <div className="text-sm font-bold text-white">Amazon Nova Prize Winner</div>
+              </div>
+            </div>
+            <div className="glass px-6 py-3 rounded-2xl flex items-center gap-4 border-orange-500/20 shadow-[0_0_20px_rgba(249,115,22,0.1)]">
+              <div className="p-2 rounded-lg bg-orange-500/10">
+                <Code className="w-5 h-5 text-orange-400" />
+              </div>
+              <div className="text-left">
+                <div className="text-[10px] text-slate-500 uppercase tracking-tighter font-bold">DSA Proficiency</div>
+                <div className="text-sm font-bold text-white">{portfolioData.leetcodeStats?.solved}+ Solved</div>
               </div>
             </div>
           </div>

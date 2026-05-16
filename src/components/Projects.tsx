@@ -43,13 +43,33 @@ const Projects = () => {
                   </div>
                 </div>
                 {/* Overlay effect */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                  <a href={project.githubLink} className="p-3 rounded-full bg-white text-black hover:scale-110 transition-transform">
-                    <Github className="w-5 h-5" />
-                  </a>
-                  <a href={project.liveLink} className="p-3 rounded-full bg-white text-black hover:scale-110 transition-transform">
-                    <ExternalLink className="w-5 h-5" />
-                  </a>
+                <div className="absolute inset-0 bg-[#0a0a0a]/60 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center gap-6 pointer-events-none group-hover:pointer-events-auto z-20">
+                  <motion.a 
+                    href={project.githubLink} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, translateY: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="flex flex-col items-center gap-2"
+                  >
+                    <div className="p-4 rounded-2xl bg-white text-black shadow-xl">
+                      <Github className="w-6 h-6" />
+                    </div>
+                    <span className="text-[10px] font-bold text-white uppercase tracking-widest">Code</span>
+                  </motion.a>
+                  <motion.a 
+                    href={project.liveLink} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, translateY: -5 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="flex flex-col items-center gap-2"
+                  >
+                    <div className="p-4 rounded-2xl bg-cyan-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+                      <ExternalLink className="w-6 h-6" />
+                    </div>
+                    <span className="text-[10px] font-bold text-white uppercase tracking-widest">Live</span>
+                  </motion.a>
                 </div>
               </div>
 
@@ -65,10 +85,20 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex items-center gap-4">
-                  <a href={project.githubLink} className="text-sm font-bold text-white hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <a 
+                    href={project.githubLink} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold text-white hover:text-cyan-400 transition-colors flex items-center gap-2"
+                  >
                     <Github className="w-4 h-4" /> Code
                   </a>
-                  <a href={project.liveLink} className="text-sm font-bold text-white hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <a 
+                    href={project.liveLink} 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold text-white hover:text-cyan-400 transition-colors flex items-center gap-2"
+                  >
                     <ExternalLink className="w-4 h-4" /> Live Demo
                   </a>
                 </div>
