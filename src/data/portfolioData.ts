@@ -88,6 +88,7 @@ export const portfolioData = {
   },
   contact: {
     email: "rajataggarwal9646@gmail.com",
-    phone: "+91 9646437049"
+    phone: "+91 9646437049",
+    location: "NIT Hamirpur, India"
   }
 };

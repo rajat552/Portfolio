@@ -30,7 +30,7 @@ const Navbar = () => {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-        scrolled ? "bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10" : "bg-transparent"
+        scrolled ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -39,11 +39,11 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-lg bg-teal-600 flex items-center justify-center">
             <Terminal className="text-white w-6 h-6" />
           </div>
-          <span className="text-xl font-bold tracking-tight">
-            RA<span className="text-cyan-500">.</span>
+          <span className="text-xl font-bold tracking-tight text-gray-900">
+            RA<span className="text-teal-600">.</span>
           </span>
         </motion.div>
 
@@ -56,22 +56,22 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="text-sm font-medium text-slate-400 hover:text-white transition-colors"
+              className="text-sm font-bold text-gray-600 hover:text-teal-600 transition-colors"
             >
               {link.name}
             </motion.a>
           ))}
-          <div className="flex items-center gap-4 border-l border-white/10 pl-8">
-            <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" title="GitHub">
+          <div className="flex items-center gap-4 border-l border-gray-200 pl-8">
+            <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600 transition-colors" title="GitHub">
               <Github className="w-5 h-5" />
             </a>
-            <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" title="LinkedIn">
+            <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600 transition-colors" title="LinkedIn">
               <LinkedinIcon className="w-5 h-5" />
             </a>
-            <a href={portfolioData.socials.leetcode} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" title="LeetCode">
+            <a href={portfolioData.socials.leetcode} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600 transition-colors" title="LeetCode">
               <Code className="w-5 h-5" />
             </a>
-            <a href={portfolioData.socials.tryhackme} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" title="TryHackMe">
+            <a href={portfolioData.socials.tryhackme} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600 transition-colors" title="TryHackMe">
               <Shield className="w-5 h-5" />
             </a>
           </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-900">
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -92,7 +92,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0a0a0a] border-b border-white/10 overflow-hidden"
+            className="md:hidden bg-white border-b border-gray-100 overflow-hidden"
           >
             <div className="flex flex-col gap-4 p-6">
               {navLinks.map((link) => (
@@ -100,22 +100,22 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-slate-400 hover:text-white transition-colors"
+                  className="text-lg font-bold text-gray-600 hover:text-teal-600 transition-colors"
                 >
                   {link.name}
                 </a>
               ))}
-              <div className="flex items-center gap-6 pt-4 border-t border-white/10">
-                <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-slate-400">
+              <div className="flex items-center gap-6 pt-4 border-t border-gray-100">
+                <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400">
                   <Github className="w-6 h-6" />
                 </a>
-                <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400">
+                <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400">
                   <LinkedinIcon className="w-6 h-6" />
                 </a>
-                <a href={portfolioData.socials.leetcode} target="_blank" rel="noopener noreferrer" className="text-slate-400">
+                <a href={portfolioData.socials.leetcode} target="_blank" rel="noopener noreferrer" className="text-gray-400">
                   <Code className="w-6 h-6" />
                 </a>
-                <a href={portfolioData.socials.tryhackme} target="_blank" rel="noopener noreferrer" className="text-slate-400">
+                <a href={portfolioData.socials.tryhackme} target="_blank" rel="noopener noreferrer" className="text-gray-400">
                   <Shield className="w-6 h-6" />
                 </a>
               </div>

@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=Caveat:wght@400..700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: 'Inter', var(--font-geist-sans);
+  --font-serif: 'Playfair Display', serif;
   --font-mono: var(--font-geist-mono);
   --font-signature: 'Caveat', cursive;
 }
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --primary: #3b82f6;
-  --secondary: #6366f1;
-  --accent: #06b6d4;
-  --muted: #1f2937;
-  --card: #111827;
+  --background: #FFFDF5;
+  --foreground: #1f2937;
+  --primary: #0D9488; /* Deep Forest Green / Teal-600 */
+  --secondary: #0f766e;
+  --accent: #059669;
+  --muted: #f3f4f6;
+  --border: #e5e7eb;
 }
 
 @layer base {
@@ -23,20 +24,12 @@
     color: var(--foreground);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     position: relative;
+    overflow-x: hidden;
   }
 
-  /* Subtle Noise Texture */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-    opacity: 0.03;
-    pointer-events: none;
-    z-index: 9999;
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: #111827;
   }
 }
 
@@ -44,22 +37,23 @@
   font-family: var(--font-signature);
 }
 
+.font-serif {
+  font-family: var(--font-serif);
+}
+
 @layer utilities {
   .glass {
-    background-color: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
   }
   
   .text-gradient {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(to right, #22d3ee, #3b82f6, #818cf8);
+    color: var(--primary);
   }
 
   .section-padding {
-    padding: 5rem 1.5rem;
+    padding: 6rem 1.5rem;
   }
 
   @media (min-width: 768px) {

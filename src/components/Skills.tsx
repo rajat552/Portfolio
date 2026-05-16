@@ -3,53 +3,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '@/data/portfolioData';
-import { LayoutGrid, Database, Cloud, Shield, Code } from 'lucide-react';
-
-const icons = [LayoutGrid, Database, Cloud, Shield];
+import { Terminal, Code } from 'lucide-react';
 
 const Skills = () => {
   return (
-    <section id="skills" className="section-padding bg-white/2">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-sm font-bold text-cyan-500 uppercase tracking-[0.2em] mb-4">Technical Arsenal</h2>
-          <h3 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">Tools & Technologies</h3>
-        </motion.div>
+    <section id="skills" className="py-24 bg-[#FFFDF5]">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-6">Expertise & <span className="text-teal-600 italic">Core Competencies</span></h2>
+            <p className="text-gray-600 text-lg">
+              A curated stack of technologies I use to build production-grade systems and research-oriented tools.
+            </p>
+          </div>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {portfolioData.skills.map((skillGroup, idx) => {
-            const Icon = icons[idx % icons.length];
-            return (
-              <motion.div
-                key={skillGroup.category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="p-8 rounded-3xl bg-gradient-to-b from-white/10 to-transparent border border-white/10 hover:border-cyan-500/30 transition-all group"
-              >
-                <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
-                  <Icon className="text-cyan-500 w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-bold mb-4 text-white">{skillGroup.category}</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skillGroup.items.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-xs text-slate-400 group-hover:text-cyan-400 group-hover:border-cyan-500/30 transition-all"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolioData.skills.map((skill, index) => (
+            <motion.div
+              key={skill.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="p-8 rounded-[2rem] bg-white border border-gray-200 shadow-sm hover:border-teal-500/30 transition-all group"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-teal-50 flex items-center justify-center">
+                  <Terminal className="w-4 h-4 text-teal-600" />
+                </span>
+                {skill.category}
+              </h3>
+              <div className="flex flex-wrap gap-3">
+                {skill.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 text-gray-700 text-sm font-medium group-hover:bg-teal-50 transition-colors"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* LeetCode Special Card */}
@@ -60,39 +56,39 @@ const Skills = () => {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 p-8 md:p-12 rounded-[2.5rem] bg-gradient-to-r from-orange-500/10 via-transparent to-cyan-500/10 border border-white/5 relative overflow-hidden group block hover:border-orange-500/30 transition-all cursor-pointer"
+          className="mt-16 p-8 md:p-12 rounded-[2.5rem] bg-white border border-gray-200 relative overflow-hidden group block hover:border-teal-500 transition-all cursor-pointer shadow-sm"
         >
-          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-            <Code className="w-64 h-64 text-white rotate-12" />
+          <div className="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity">
+            <Code className="w-64 h-64 text-teal-900 rotate-12" />
           </div>
           
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold mb-6 group-hover:bg-orange-500/20 transition-colors">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-bold mb-6 group-hover:bg-teal-100 transition-colors">
                 50 Days Streak 2025
               </div>
-              <h4 className="text-3xl md:text-5xl font-bold mb-6 group-hover:text-orange-400 transition-colors">Algorithm Mastery</h4>
-              <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
-                Actively solving complex algorithmic challenges on LeetCode to sharpen problem-solving intuition. My focus is on Master concepts in <span className="text-white font-semibold">dynamic programming, graph theory, and advanced data structures</span> with a high ratio of Medium difficulty problems.
+              <h4 className="text-3xl md:text-5xl font-serif font-bold mb-6 group-hover:text-teal-600 transition-colors">Algorithm Mastery</h4>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-xl">
+                Actively solving complex algorithmic challenges on LeetCode to sharpen problem-solving intuition. My focus is on <span className="text-gray-900 font-semibold italic">dynamic programming, graph theory, and advanced data structures</span>.
               </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="p-6 rounded-3xl bg-[#0a0a0a]/50 border border-white/5 text-center group-hover:border-white/10 transition-all">
-                <div className="text-3xl font-bold text-white mb-1">{portfolioData.leetcodeStats?.solved}</div>
-                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Total Solved</div>
+              <div className="p-6 rounded-3xl bg-gray-50 border border-gray-200 text-center group-hover:bg-white transition-all">
+                <div className="text-3xl font-bold text-gray-900 mb-1">{portfolioData.leetcodeStats?.solved}</div>
+                <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Total Solved</div>
               </div>
-              <div className="p-6 rounded-3xl bg-[#0a0a0a]/50 border border-white/5 text-center group-hover:border-white/10 transition-all">
-                <div className="text-3xl font-bold text-green-400 mb-1">{portfolioData.leetcodeStats?.easy}</div>
-                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Easy</div>
+              <div className="p-6 rounded-3xl bg-gray-50 border border-gray-200 text-center group-hover:bg-white transition-all">
+                <div className="text-3xl font-bold text-emerald-600 mb-1">{portfolioData.leetcodeStats?.easy}</div>
+                <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Easy</div>
               </div>
-              <div className="p-6 rounded-3xl bg-[#0a0a0a]/50 border border-white/5 text-center group-hover:border-white/10 transition-all">
-                <div className="text-3xl font-bold text-orange-400 mb-1">{portfolioData.leetcodeStats?.medium}</div>
-                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Medium</div>
+              <div className="p-6 rounded-3xl bg-gray-50 border border-gray-200 text-center group-hover:bg-white transition-all">
+                <div className="text-3xl font-bold text-teal-600 mb-1">{portfolioData.leetcodeStats?.medium}</div>
+                <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Medium</div>
               </div>
-              <div className="p-6 rounded-3xl bg-[#0a0a0a]/50 border border-white/5 text-center group-hover:border-white/10 transition-all">
-                <div className="text-3xl font-bold text-red-400 mb-1">{portfolioData.leetcodeStats?.hard}</div>
-                <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">Hard</div>
+              <div className="p-6 rounded-3xl bg-gray-50 border border-gray-200 text-center group-hover:bg-white transition-all">
+                <div className="text-3xl font-bold text-rose-600 mb-1">{portfolioData.leetcodeStats?.hard}</div>
+                <div className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Hard</div>
               </div>
             </div>
           </div>
