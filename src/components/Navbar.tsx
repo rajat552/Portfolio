@@ -29,8 +29,8 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-        scrolled ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6 py-4",
+        (scrolled || isOpen) ? "bg-white shadow-sm border-b border-gray-100" : "bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -85,47 +85,55 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Nav Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 md:hidden bg-white/95 backdrop-blur-xl flex flex-col items-center justify-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 z-[120] md:hidden bg-white flex flex-col p-8"
           >
-            <div className="flex flex-col items-center gap-8 p-6 text-center">
+            <div className="flex items-center justify-between mb-16">
+              <div className="flex items-center gap-2">
+                <div className="w-10 h-10 rounded-lg bg-teal-600 flex items-center justify-center">
+                  <Terminal className="text-white w-6 h-6" />
+                </div>
+                <span className="text-xl font-bold tracking-tight text-gray-900">
+                  RA<span className="text-teal-600">.</span>
+                </span>
+              </div>
+              <button onClick={() => setIsOpen(false)} className="p-2 text-gray-900 hover:bg-gray-50 rounded-xl transition-colors">
+                <X className="w-8 h-8" />
+              </button>
+            </div>
+
+            <div className="flex flex-col gap-6">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.name}
                   href={link.href}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
                   onClick={() => setIsOpen(false)}
-                  className="text-3xl font-serif font-bold text-gray-900 hover:text-teal-600 transition-colors"
+                  className="text-4xl font-serif font-bold text-gray-900 hover:text-teal-600 transition-colors"
                 >
                   {link.name}
                 </motion.a>
               ))}
-              
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="flex items-center gap-8 pt-8 border-t border-gray-100 w-full justify-center"
-              >
-                <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
-                  <Github className="w-8 h-8" />
-                </a>
-                <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
-                  <LinkedinIcon className="w-8 h-8" />
-                </a>
-                <a href={portfolioData.socials.leetcode} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
-                  <Code className="w-8 h-8" />
-                </a>
-              </motion.div>
+            </div>
+            
+            <div className="mt-auto pt-8 border-t border-gray-100 flex items-center gap-8">
+              <a href={portfolioData.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
+                <Github className="w-8 h-8" />
+              </a>
+              <a href={portfolioData.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
+                <LinkedinIcon className="w-8 h-8" />
+              </a>
+              <a href={portfolioData.socials.leetcode} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-teal-600">
+                <Code className="w-8 h-8" />
+              </a>
             </div>
           </motion.div>
         )}

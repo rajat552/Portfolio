@@ -18,13 +18,18 @@
   --border: #e5e7eb;
 }
 
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
 @layer base {
   body {
+    width: 100%;
     background: var(--background);
     color: var(--foreground);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    position: relative;
-    overflow-x: hidden;
     /* Paper Texture Overlay */
     background-image: 
       radial-gradient(#1f293705 1px, transparent 0),

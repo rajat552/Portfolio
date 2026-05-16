@@ -29,7 +29,7 @@ const Hero = () => {
   } as const;
 
   return (
-    <section className="min-h-screen pt-32 pb-20 flex flex-col items-center justify-center text-center px-6 relative overflow-hidden bg-[#FFFDF5]">
+    <section className="min-h-screen pt-32 pb-20 flex flex-col items-center justify-center text-center px-6 relative z-10 bg-[#FFFDF5]">
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           variants={containerVariants}
@@ -77,24 +77,24 @@ const Hero = () => {
               Available for Opportunities
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6">
-              <div className="bg-white px-6 py-4 rounded-2xl flex items-center gap-4 border border-gray-200 shadow-sm">
+            <div className="grid grid-cols-1 sm:flex sm:flex-wrap justify-center gap-4 md:gap-6 px-4 md:px-0">
+              <div className="bg-white px-4 md:px-6 py-3 md:py-4 rounded-2xl flex items-center gap-4 border border-gray-200 shadow-sm">
                 <div className="p-2 rounded-lg bg-teal-50">
                   <ShieldCheck className="w-5 h-5 text-teal-600" />
                 </div>
                 <div className="text-left">
                   <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Achievement</div>
-                  <div className="text-sm font-bold text-gray-900">GSSoC&apos;26 Contributor</div>
+                  <div className="text-sm font-bold text-gray-900 line-clamp-1">GSSoC&apos;26 Contributor</div>
                 </div>
               </div>
 
-              <div className="bg-white px-6 py-4 rounded-2xl flex items-center gap-4 border border-gray-200 shadow-sm">
+              <div className="bg-white px-4 md:px-6 py-3 md:py-4 rounded-2xl flex items-center gap-4 border border-gray-200 shadow-sm">
                 <div className="p-2 rounded-lg bg-teal-50">
                   <Cloud className="w-5 h-5 text-teal-600" />
                 </div>
                 <div className="text-left">
                   <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Hackathon</div>
-                  <div className="text-sm font-bold text-gray-900">Amazon Nova Prize Winner</div>
+                  <div className="text-sm font-bold text-gray-900 line-clamp-1">Amazon Nova Prize Winner</div>
                 </div>
               </div>
 
@@ -102,14 +102,14 @@ const Hero = () => {
                 href={portfolioData.socials.leetcode}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white px-6 py-4 rounded-2xl flex items-center gap-4 border border-gray-200 shadow-sm hover:border-teal-500 transition-all group"
+                className="bg-white px-4 md:px-6 py-3 md:py-4 rounded-2xl flex items-center gap-4 border border-gray-200 shadow-sm hover:border-teal-500 transition-all group"
               >
                 <div className="p-2 rounded-lg bg-teal-50 group-hover:bg-teal-100 transition-colors">
                   <Code className="w-5 h-5 text-teal-600" />
                 </div>
                 <div className="text-left">
                   <div className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">DSA Proficiency</div>
-                  <div className="text-sm font-bold text-gray-900 group-hover:text-teal-600 transition-colors">{portfolioData.leetcodeStats?.solved}+ Solved</div>
+                  <div className="text-sm font-bold text-gray-900 group-hover:text-teal-600 transition-colors line-clamp-1">{portfolioData.leetcodeStats?.solved}+ Solved</div>
                 </div>
               </a>
             </div>

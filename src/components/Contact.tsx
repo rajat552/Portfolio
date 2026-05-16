@@ -36,7 +36,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#FFFDF5]">
+    <section id="contact" className="py-24 bg-[#FFFDF5] relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
           <motion.div

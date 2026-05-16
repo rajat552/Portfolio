@@ -7,7 +7,7 @@ import { Terminal, Code } from 'lucide-react';
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-24 bg-[#FFFDF5]">
+    <section id="skills" className="py-24 bg-[#FFFDF5] relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="max-w-2xl">

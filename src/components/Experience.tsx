@@ -7,7 +7,7 @@ import { Briefcase, GitBranch, Trophy } from 'lucide-react';
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 bg-[#FFFDF5]">
+    <section id="experience" className="py-24 bg-[#FFFDF5] relative z-10">
       <div className="max-w-4xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
