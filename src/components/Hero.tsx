@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { ChevronRight, Download, Github, ShieldCheck, Briefcase, Cloud, Code } from 'lucide-react';
+import { ChevronRight, Download, Github, ShieldCheck, Briefcase, Cloud, Code, Linkedin } from 'lucide-react';
 import { portfolioData } from '@/data/portfolioData';
 
 const Hero = () => {
@@ -83,15 +83,20 @@ const Hero = () => {
                 <div className="text-sm font-bold text-white">Amazon Nova Prize Winner</div>
               </div>
             </div>
-            <div className="glass px-6 py-3 rounded-2xl flex items-center gap-4 border-orange-500/20 shadow-[0_0_20px_rgba(249,115,22,0.1)]">
-              <div className="p-2 rounded-lg bg-orange-500/10">
+            <a 
+              href={portfolioData.socials.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass px-6 py-3 rounded-2xl flex items-center gap-4 border-orange-500/20 shadow-[0_0_20px_rgba(249,115,22,0.1)] hover:border-orange-500/50 transition-all group"
+            >
+              <div className="p-2 rounded-lg bg-orange-500/10 group-hover:bg-orange-500/20 transition-colors">
                 <Code className="w-5 h-5 text-orange-400" />
               </div>
               <div className="text-left">
                 <div className="text-[10px] text-slate-500 uppercase tracking-tighter font-bold">DSA Proficiency</div>
-                <div className="text-sm font-bold text-white">{portfolioData.leetcodeStats?.solved}+ Solved</div>
+                <div className="text-sm font-bold text-white group-hover:text-orange-400 transition-colors">{portfolioData.leetcodeStats?.solved}+ Solved</div>
               </div>
-            </div>
+            </a>
           </div>
         </motion.div>
 
@@ -132,6 +137,17 @@ const Hero = () => {
           >
             <Download className="w-5 h-5 text-cyan-500" />
             Download Resume
+          </motion.a>
+          <motion.a
+            href={portfolioData.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl font-bold transition-all flex items-center gap-2"
+          >
+            <Linkedin className="w-5 h-5 text-blue-400" />
+            LinkedIn
           </motion.a>
         </motion.div>
 
